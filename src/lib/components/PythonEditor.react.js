@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import Editor from 'react-simple-code-editor';
 import { highlight, languages } from 'prismjs/components/prism-core';
 import 'prismjs/components/prism-python';
+import 'primsjs/components/prism-javascript';
 
 /**
  * PythonEditor is a Python code editor comopnent.
@@ -22,9 +23,14 @@ export default class PythonEditor extends Component {
 			className,
 			loading_state, 
 			setProps,
+			language,
 			...otherProps
 		} = this.props;
-  
+  	if (language == 'python') {
+		loaded_language =  languages.python;
+	} else { 
+		loaded_language = languages.javascript;
+	}
         return (
 			<Editor
 			    data-dash-is-loading={
@@ -33,7 +39,7 @@ export default class PythonEditor extends Component {
 				textareaId={id}
 				value={value}
 				onValueChange={code => setProps({ value: code })}
-				highlight={code => highlight(code, languages.python)}
+				highlight={code => highlight(code, loaded_language)}
 				className={classnames('container__editor', className)}
 				{...otherProps}
 			/>
@@ -46,8 +52,9 @@ PythonEditor.defaultProps = {
     insertSpaces: true,
     ignoreTabKey: false,
     padding: 10,
-	placeholder: "Type some code here...",
-	value: ""
+    placeholder: "Type some code here...",
+    value: "",
+    language: "javascript"
 };
 
 PythonEditor.propTypes = {
@@ -107,7 +114,12 @@ PythonEditor.propTypes = {
      * Provides a hint to the user of what can be entered in the field.
      */
     placeholder: PropTypes.string,
-
+    
+    /**
+     * Provides a hint to the user of what can be entered in the field.
+     */
+    language: PropTypes.string,
+	
     /**
      * Indicates whether the element can be edited.
      * readOnly is an HTML boolean attribute - it is enabled by a boolean or
