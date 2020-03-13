@@ -22,6 +22,7 @@ components in an app.
 - form (string; optional): Indicates the form that is the owner of the element.
 - name (string; optional): Name of the element. For example used by the server to identify the fields in form submits.
 - placeholder (string; default "Type some code here..."): Provides a hint to the user of what can be entered in the field.
+- language (string; default "javascript"): Provides a hint to the user of what can be entered in the field.
 - readOnly (boolean | a value equal to: 'readOnly', 'readonly', 'READONLY'; optional): Indicates whether the element can be edited.
 readOnly is an HTML boolean attribute - it is enabled by a boolean or
 'readOnly'. Alternative capitalizations `readonly` & `READONLY`
@@ -38,12 +39,12 @@ Those keys have the following types:
   - prop_name (string; optional): Holds which property is loading
   - component_name (string; optional): Holds the name of the component that is loading"""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, value=Component.UNDEFINED, tabSize=Component.UNDEFINED, insertSpaces=Component.UNDEFINED, ignoreTabKey=Component.UNDEFINED, padding=Component.UNDEFINED, autoFocus=Component.UNDEFINED, disabled=Component.UNDEFINED, form=Component.UNDEFINED, name=Component.UNDEFINED, placeholder=Component.UNDEFINED, readOnly=Component.UNDEFINED, required=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'value', 'tabSize', 'insertSpaces', 'ignoreTabKey', 'padding', 'autoFocus', 'disabled', 'form', 'name', 'placeholder', 'readOnly', 'required', 'className', 'style', 'loading_state']
+    def __init__(self, id=Component.UNDEFINED, value=Component.UNDEFINED, tabSize=Component.UNDEFINED, insertSpaces=Component.UNDEFINED, ignoreTabKey=Component.UNDEFINED, padding=Component.UNDEFINED, autoFocus=Component.UNDEFINED, disabled=Component.UNDEFINED, form=Component.UNDEFINED, name=Component.UNDEFINED, placeholder=Component.UNDEFINED, language=Component.UNDEFINED, readOnly=Component.UNDEFINED, required=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'value', 'tabSize', 'insertSpaces', 'ignoreTabKey', 'padding', 'autoFocus', 'disabled', 'form', 'name', 'placeholder', 'language', 'readOnly', 'required', 'className', 'style', 'loading_state']
         self._type = 'PythonEditor'
         self._namespace = 'dash_editor_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'value', 'tabSize', 'insertSpaces', 'ignoreTabKey', 'padding', 'autoFocus', 'disabled', 'form', 'name', 'placeholder', 'readOnly', 'required', 'className', 'style', 'loading_state']
+        self.available_properties = ['id', 'value', 'tabSize', 'insertSpaces', 'ignoreTabKey', 'padding', 'autoFocus', 'disabled', 'form', 'name', 'placeholder', 'language', 'readOnly', 'required', 'className', 'style', 'loading_state']
         self.available_wildcard_properties =            []
 
         _explicit_args = kwargs.pop('_explicit_args')

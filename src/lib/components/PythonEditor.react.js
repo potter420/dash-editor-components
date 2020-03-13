@@ -29,10 +29,9 @@ export default class PythonEditor extends Component {
 			language,
 			...otherProps
 		} = this.props;
+    var loaded_language = languages.javascript;
   	if (language == 'python') {
-		loaded_language =  languages.python;
-	} else { 
-		loaded_language = languages.javascript;
+		loaded_language = languages.python;
 	}
         return (
 			<Editor
@@ -42,7 +41,7 @@ export default class PythonEditor extends Component {
 				textareaId={id}
 				value={value}
 				onValueChange={code => setProps({ value: code })}
-				highlight={code => highlight(code, loaded_language)}
+				highlight={code => highlight(code, languages.javascript)}
 				className={classnames('container__editor', className)}
 				{...otherProps}
 			/>
